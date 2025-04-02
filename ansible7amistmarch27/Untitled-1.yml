@@ -1,0 +1,40 @@
+- hosts: all/localhost/ipaddress of node
+  become: yes
+  tasks:
+   - name: installing git
+     apt:
+      name: git
+      state: present
+      update_cache: yes
+   - name: installing maven
+     apt:
+      name: maven
+      state: present
+      update_cache: yes
+   - name: installing htop
+     apt:
+      name: htop
+      state: present
+      update_cache: yes
+   - name: installing tree
+     apt:
+      name: tree
+      state: present
+      update_cache: yes
+
+
+
+
+------------------
+- hosts: 172.31.39.155
+  become: yes
+  tasks:
+  - name: using ansible loops
+    user: 
+     name: "{{a}}" 
+     home: /home/ansible
+     password: abc
+    loop: 
+     - user1
+     - user2
+     - user3
